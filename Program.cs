@@ -1,3 +1,4 @@
+/*
 // Declaracion basica de un array
 string[] personas = { "Juan", "Maria", "Pedro", "Ana"};
 
@@ -44,3 +45,68 @@ stringList.Exists(x => x.Length > 10);
 //Buscar un elemento en la lista que contenga un caracter en especifico
 //en este caso, que empiece con la letra "v"
 stringList.Find(x => x.StartsWith("v"));
+*/
+
+string[] canciones = {
+"Passionfruit",
+"Genero rural",
+"Anestesia local 1",
+"Anestesia local 2",
+"Euphoria",
+"Not like us",
+"Type shit",
+"Like that",
+"Accordion",
+"Billie jean"
+};
+
+//Creando una LinkedList
+LinkedList<string> cancionesLinkedList = new LinkedList<string>(canciones);
+
+//Agregar un elemento al inicio de la LinkedList
+cancionesLinkedList.AddFirst("Primera cancion");
+
+//Agregar un elemento al final de la LinkedList
+cancionesLinkedList.AddLast("Ultima cancion");
+
+//Imprimir toda la lista
+foreach(string str in cancionesLinkedList){
+  Console.WriteLine(str);
+};
+
+//Buscar el primer elemento de la LinkedList
+//El signo de admiracion es para denotar que el valor que va a recibir no es nulo
+LinkedListNode<string> primerElemento = cancionesLinkedList.First!;
+
+//Buscar el primer elemento de la LinkedList
+LinkedListNode<string> ultimoElemento = cancionesLinkedList.Last!;
+
+//El ".Value" es para que me muestre el valor que almacena el nodo
+Console.WriteLine($"Primera cancion: {primerElemento.Value}, ultima cancion {ultimoElemento.Value}");
+
+//Los elementos pueden ser agregados o eliminados dependiendo de un elemento existente
+//Agregando un elemento a la LinkedList despues de un valor especifico
+cancionesLinkedList.AddAfter(primerElemento, "Segunda cancion");
+
+//Agregando un elemento a la LinkedList Antes de un valor especifico
+cancionesLinkedList.AddBefore(primerElemento, "Cancion previa");
+
+//Para eliminar el primer elemento de la LinkedList
+cancionesLinkedList.RemoveFirst();
+
+//Para eliminar el ultimo elemento de la LinkedList
+cancionesLinkedList.RemoveLast();
+  
+Console.WriteLine("Lista de canciones actualizada");
+
+foreach(string str in cancionesLinkedList){
+  Console.WriteLine(str);
+};
+
+//Buscar elementos en la LinkedList con el metodo Contains (Retorna true o false)
+Console.WriteLine($"La cancion 'Passionfruit' esta en la lista: {cancionesLinkedList.Contains("Passionfruit")}");
+
+//Accediendo a los datos con los metodos Next and Previous
+Console.WriteLine($"La cancion que sigue despues de la primera es: {cancionesLinkedList.First!.Next!.Value}");
+
+Console.WriteLine($"La cancion anterior a la ultima cancion es: {cancionesLinkedList.Last!.Previous!.Value}");
