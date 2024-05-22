@@ -47,6 +47,7 @@ stringList.Exists(x => x.Length > 10);
 stringList.Find(x => x.StartsWith("v"));
 */
 
+/*
 string[] canciones = {
 "Passionfruit",
 "Genero rural",
@@ -110,3 +111,36 @@ Console.WriteLine($"La cancion 'Passionfruit' esta en la lista: {cancionesLinked
 Console.WriteLine($"La cancion que sigue despues de la primera es: {cancionesLinkedList.First!.Next!.Value}");
 
 Console.WriteLine($"La cancion anterior a la ultima cancion es: {cancionesLinkedList.Last!.Previous!.Value}");
+*/
+
+//Crear un stack collection
+Stack<string> miStack = new Stack<string>();
+
+//Insertar elementos en el stack
+miStack.Push("Uno");
+miStack.Push("Dos");
+miStack.Push("Tres");
+miStack.Push("Cuatro");
+miStack.Push("Cinco");
+miStack.Push("Seis");
+
+//Imprimir el contenido del stack
+foreach (string s in miStack){
+  Console.WriteLine(s);
+}
+
+//Mostrar el primer elemento del stack (o el ultimo elemento agregado)
+string miPrimerElemento = miStack.Peek();
+Console.WriteLine($"Este es mi primer elemento: {miPrimerElemento}");
+
+//Mostrar y eliminar el primer elemento del stack
+string elementoEliminado = miStack.Pop();
+Console.WriteLine($"Este elemento ha sido eliminado: {elementoEliminado}");
+
+foreach (string s in miStack){
+  Console.WriteLine(s);
+}
+
+//Buscamos elementos con el metodo contains
+var existeElemento = miStack.Contains("Dos");
+Console.WriteLine($"Existe el elemento en la coleccion?: {existeElemento}");
