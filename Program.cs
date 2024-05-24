@@ -113,6 +113,7 @@ Console.WriteLine($"La cancion que sigue despues de la primera es: {cancionesLin
 Console.WriteLine($"La cancion anterior a la ultima cancion es: {cancionesLinkedList.Last!.Previous!.Value}");
 */
 
+/*
 //Crear un stack collection
 Stack<string> miStack = new Stack<string>();
 
@@ -144,3 +145,36 @@ foreach (string s in miStack){
 //Buscamos elementos con el metodo contains
 var existeElemento = miStack.Contains("Dos");
 Console.WriteLine($"Existe el elemento en la coleccion?: {existeElemento}");
+*/
+
+//Crear una Queue collection
+Queue<string> miQueue = new Queue<string>();
+
+//Agregar elementos en la Queue
+miQueue.Enqueue("uno");
+miQueue.Enqueue("dos");
+miQueue.Enqueue("tres");
+miQueue.Enqueue("cuatro");
+miQueue.Enqueue("cinco");
+miQueue.Enqueue("seis");
+
+//Imprimir el contenido de la Queue
+foreach (string s in miQueue){
+  Console.WriteLine(s);
+}
+
+//Mostrar el primer elemento de la Queue
+var primerElemento = miQueue.Peek();
+Console.WriteLine($"Mi primer elemento es: {primerElemento}");
+
+//Eliminar un elemento dentro de una Queue
+string elementoParaEliminar = miQueue.Dequeue();
+Console.WriteLine($"Se elimino el elemento {elementoParaEliminar}");
+
+foreach (string s in miQueue){
+  Console.WriteLine(s);
+}
+
+//Como buscar un elemento en una Queue
+var existeElemento = miQueue.Contains("dos");
+Console.WriteLine($"Existe el elemento dos en la Queue?: {existeElemento}");
