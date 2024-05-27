@@ -147,6 +147,7 @@ var existeElemento = miStack.Contains("Dos");
 Console.WriteLine($"Existe el elemento en la coleccion?: {existeElemento}");
 */
 
+/*
 //Crear una Queue collection
 Queue<string> miQueue = new Queue<string>();
 
@@ -178,3 +179,44 @@ foreach (string s in miQueue){
 //Como buscar un elemento en una Queue
 var existeElemento = miQueue.Contains("dos");
 Console.WriteLine($"Existe el elemento dos en la Queue?: {existeElemento}");
+*/
+
+//Crear un diccionario
+Dictionary<string, string> miDiccionario = new Dictionary<string, string>();
+
+//Agregar elementos al diccionario
+miDiccionario.Add(".doc", "Documentos de word");
+miDiccionario.Add(".txt", "Blog de notas");
+miDiccionario.Add(".html", "Paginas web");
+miDiccionario.Add(".jpg", "Archivos de imagen");
+
+//Intentando agregar un elemento con un key repetido
+//miDiccionario.Add(".doc", "Otro documento word");
+//No se puede agregar un elemento con un key repetido
+var sePuedeAgregar = miDiccionario.TryAdd(".doc", "Otro intento word");
+
+if(!sePuedeAgregar){
+  Console.WriteLine("No se puede agregar un elemento con un key repetido");
+}
+
+//Acceder a un elemento del diccionario
+var valorHtml = miDiccionario[".html"];
+Console.WriteLine($"El valor de la key .html es: {valorHtml}");
+
+//Actualizar el valor de un diccionario
+miDiccionario[".txt"] = "Este es el nuevo valor de .txt";
+
+//Buscar elementos de un diccionario por el key
+Console.WriteLine($"Buscando el key jpg: {miDiccionario.ContainsKey(".jpg")}");
+
+//Buscar elementos de un diccionario por el value
+Console.WriteLine($"Buscando el value html: {miDiccionario.ContainsValue("Paginas web")}");
+  
+//Eliminar un elemento de un diccionario
+miDiccionario.Remove(".jpg");
+
+//Imprimir elementos del diccionario
+// El valor de un diccionario esta compuesto por su key(parte 1) y su value(parte 2)
+foreach (KeyValuePair<string, string> elemento in miDiccionario){
+  Console.WriteLine($"Imprime el elemento: {elemento.Key} - {elemento.Value}");
+}
